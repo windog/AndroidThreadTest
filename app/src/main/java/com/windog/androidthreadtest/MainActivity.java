@@ -43,5 +43,54 @@ public class MainActivity extends Activity {
                 handler.sendMessage(message);
             }
         });
+
+
+        //以下为用两队英雄同时互相攻击的例子，来理解多线程。四个英雄两两互攻，就是四个线程。
+        final Hero a = new Hero(1000,80,"盖伦");
+        final Hero b = new Hero(500,200,"提莫");
+
+        final Hero c = new Hero(800,100,"盲僧");
+        final Hero d = new Hero(700,250,"男枪");
+
+        //盖伦攻击提莫
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!b.isDead() && !a.isDead()) {
+                    a.attack(b);
+                }
+            }
+        }).start();
+
+        //提莫攻击盖伦
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!b.isDead() && !a.isDead()) {
+                    b.attack(a);
+                }
+            }
+        }).start();
+
+
+        //盲僧攻击男枪
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!d.isDead() && !c.isDead()) {
+                    c.attack(d);
+                }
+            }
+        }).start();
+
+        //男枪攻击盲僧
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!d.isDead() && !c.isDead()) {
+                    d.attack(c);
+                }
+            }
+        }).start();
     }
 }
