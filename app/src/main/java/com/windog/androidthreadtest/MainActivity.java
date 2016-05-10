@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
         });
 
 
-        //以下为用两队英雄同时互相攻击的例子，来理解多线程。四个英雄两两互攻，就是四个线程。
+        //以下为用两对英雄同时互相攻击的例子，来理解多线程。四个英雄两两互攻，就是四个线程。
         final Hero a = new Hero(1000,80,"盖伦");
         final Hero b = new Hero(500,200,"提莫");
 
