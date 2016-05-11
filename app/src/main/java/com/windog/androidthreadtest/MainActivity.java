@@ -52,7 +52,6 @@ public class MainActivity extends Activity {
         final Hero c = new Hero(800,100,"盲僧");
         final Hero d = new Hero(700,250,"男枪");
 
-        Math.round(-11.5);
 
         //盖伦攻击提莫
         new Thread(new Runnable() {
@@ -76,7 +75,6 @@ public class MainActivity extends Activity {
                 }
             }
         }).start();
-
 
         //盲僧攻击男枪
         new Thread(new Runnable() {
