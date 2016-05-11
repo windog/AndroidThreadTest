@@ -56,9 +56,12 @@ public class MainActivity extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (!b.isDead() && !a.isDead()) {
+                //do-while的写法，先保证运行一次 attack() ,再 while 判断
+                //循环有三种，for ，while ，do-while
+                do {
                     a.attack(b);
                 }
+                while (!b.isDead() && !a.isDead()) ;
             }
         }).start();
 
