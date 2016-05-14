@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 //do-while的写法，先保证运行一次 attack() ,再 while 判断
-                //循环有三种，for ，while ，do-while
+                //循环有三种，for ，while ，do-while ，要理解不同之处
                 do {
                     a.attack(b);
                 }
